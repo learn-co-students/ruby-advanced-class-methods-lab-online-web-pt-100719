@@ -1,3 +1,4 @@
+require 'pry'
 class Song
   attr_accessor :name, :artist_name
   @@all = []
@@ -10,9 +11,23 @@ class Song
     self.class.all << self
   end
   
-  def self.create(song)
-    song = Song.create
-    Song.all.include?(song)
-    save
+  def self.create
+    song = Song.new
+    song.save
+    song
+  end
+  
+  def self.new_by_name(song_name)
+  song = self.create
+  song.name = song_name
+  @song_name = song_name
+  song
+  end
+  
+  def self.create_by_name(song_name)
+    song = self.create
+    song.name = song_name
+    @song_name = song_name
+    song
   end
 end
