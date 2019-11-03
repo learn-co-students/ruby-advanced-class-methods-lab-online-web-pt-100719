@@ -41,20 +41,6 @@ class Song
     self.all.sort_by { |song| song.name }
   end
 
-  #def remove_extension(filename)
-   # filename.chomp(".mp3")
-  #end
-
-  #def split_and_remove(filename)
-   # split_filename = filename.chomp(".mp3").split(" - ")
-    #split_filename
-  #end
-
-  #def return_split
-   # artist_name = split_filename[0]
-    #song_name = split_filename[1]
-  #end
-
   def self.new_from_filename(filename)
     split_filename =  filename.chomp(".mp3").split(" - ")
     song = self.new
