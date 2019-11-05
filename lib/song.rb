@@ -12,7 +12,7 @@ class Song
   end
   
   def self.create
-    song = Song.new
+    song = self.new
     song.save
     song
   end
@@ -32,7 +32,7 @@ class Song
   end
   
   def self.find_by_name(song_name)
-    Song.all.find{|song| song.name == song_name}
+    self.all.find{|song| song.name == song_name}
   end
   
   def self.find_or_create_by_name(song_name)
