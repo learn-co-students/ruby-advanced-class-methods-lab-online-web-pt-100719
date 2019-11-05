@@ -38,10 +38,22 @@ class Song
   def self.find_or_create_by_name(song_name)
     song = song_name
     @song = song
-   if find_by_name(song) == nil || false
-     return @song
+   if self.find_by_name(song) == nil || false
+        self.create_by_name(song)
    else
-     create_by_name(song)
+      self.find_by_name(song)
    end
+  end
+  
+  def self.alphabetical
+    Song.all.sort_by{|song| song.name}
+  end
+  
+  def self.new_from_filename(song_file)
+    artist = song_file.split("-")
+    self.artist_name = artist[0]
+    song = artist[1].split(".")
+    self.name = song[0]
+    binding.pry
   end
 end
