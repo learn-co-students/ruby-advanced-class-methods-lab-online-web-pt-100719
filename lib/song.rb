@@ -28,8 +28,11 @@ class Song
     song = self.new
     song.name = name
     @@all << song
-    song
-    
+    song 
+  end 
+  
+  def self.find_by_name(name)
+    @@all.detect { |song| song.name == name}
   end 
     
 #binding.pry 
