@@ -32,14 +32,14 @@ class Song
   end 
   
   def self.find_by_name(name)
-     if  @@all.detect { |song| song.name == name}
-    song
-     else 
-       false
-    end 
+      @@all.detect { |song| song.name == name}
+  end 
+  
+  def self.find_or_create_by_name
+      
   end 
 
-  
+
     
 #binding.pry 
 
