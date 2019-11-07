@@ -19,26 +19,29 @@ class Song
   end 
   
   def self.new_by_name(name)
-    song = self.new
-    song.name = name 
-    song
+    song = self.new       #creates new object/ instance
+    song.name = name      #gives object a name
+    song                  # returns that object
   end 
   
   def self.create_by_name(name)
-    song = self.new
-    song.name = name
-    @@all << song
+    song = self.new         #creates instance/object
+    song.name = name        #sets name to that object
+    @@all << song           #saves to array
     song 
   end 
   
   def self.find_by_name(name)
-      @@all.detect { |song| song.name == name}
+      @@all.detect { |song| song.name == name} #finds a song
   end 
   
-  def self.find_or_create_by_name
-      
+  def self.find_or_create_by_name(name)
+    self.find_by_name(name) || self.create_by_name(name) #prevents duplicating 
   end 
 
+  def self.alphabetical   # return songs in ascending order a-z
+    @@all.sort_by {|song| song.name}
+  end 
 
     
 #binding.pry 
